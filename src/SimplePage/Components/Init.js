@@ -1,16 +1,44 @@
-const Fetch = require('node-fetch')
+import { useEffect, useState } from 'react';
+const Fetch = require('node-fetch');
 
-const Init = ()=> {
+const Init = () => {
+  const [DataApi, setDataApi] = useState([]);
+  const Url = 'https://jsonplaceholder.typicode.com/posts';
 
-    Fetch('https://jsonplaceholder.typicode.com/posts')
-.then(promesa => promesa.json())
-.then(contenod => console.log(contenod))
+  const ApiFetch = async () => {
+    const Response = await Fetch(Url);
+    const ResponseJson = await Response.json();
+    setDataApi(ResponseJson);
+  };
 
-return (
-    <h1>Hellos</h1>
-)
+  useEffect(() => {
+    ApiFetch();
+  }, []);
 
-}
-export default Init
-
-
+  return (
+      
+    <table className="table table-hover table-responsive table align-middle container mt-5">
+      <thead className="table-light text-center">
+        <tr>
+          <th scope="col">UserId</th>
+          <th scope="col">Id</th>
+          <th scope="col">Title</th>
+          <th scope="col">Body</th>
+        </tr>
+      </thead>
+      <tbody>
+        {DataApi.map((value, index) => {
+          return (
+            <tr key={index}>
+              <td>{value.userId}</td>
+              <td>{value.id}</td>
+              <td>{value.title}</td>
+              <td>{value.body}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  );
+};
+export default Init;

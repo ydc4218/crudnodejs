@@ -5,6 +5,8 @@ import {
   HashRouter
 } from 'react-router-dom';
 import Init from './Components/Init';
+import Register from './Components/Register';
+import '../Style/Style.css';
 
 
 const SimplePage = () => {
@@ -14,12 +16,15 @@ const SimplePage = () => {
         <div className="row justify-content-center">
           <div className="btn-group">
             <NavLink to="/" className="btn btn-dark">
-              Inicio
+              Api
             </NavLink>
-            <NavLink to="/Formulario" className="btn btn-dark">
+            <NavLink to="/Databd" className="btn btn-dark">
+              Data BD
+            </NavLink>
+            <NavLink to="/Register" className="btn btn-dark">
               Registro
             </NavLink>
-            <NavLink to="/Configuracion" className="btn btn-dark">
+            <NavLink to="/Setting" className="btn btn-dark">
               Configuración
             </NavLink>
           </div>
@@ -27,9 +32,9 @@ const SimplePage = () => {
       </div>
 
       <Routes>
-      <Route path="/"element={<Init />}>
+      <Route path="/" element={<Init />}>
         </Route>
-        <Route path="/Formulario" exact>
+        <Route path="/Register" element={<Register />}>
         </Route>
         <Route path="/Configuracion" exact></Route>
       </Routes>
