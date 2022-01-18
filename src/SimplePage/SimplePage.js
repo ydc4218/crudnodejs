@@ -7,6 +7,7 @@ import {
 import Init from './Components/Init';
 import Register from './Components/Register';
 import '../Style/Style.css';
+import DataBd from './Components/Databd';
 
 
 const SimplePage = () => {
@@ -33,6 +34,8 @@ const SimplePage = () => {
 
       <Routes>
       <Route path="/" element={<Init />}>
+        </Route>
+        <Route path="/Databd" element={<DataBd />}>
         </Route>
         <Route path="/Register" element={<Register />}>
         </Route>

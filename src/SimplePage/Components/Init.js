@@ -17,7 +17,7 @@ const Init = () => {
 
   return (
       
-    <table className="table table-hover table-responsive table align-middle container mt-5">
+    <table className="table table-hover table-responsive align-middle container mt-5">
       <thead className="table-light text-center">
         <tr>
           <th scope="col">UserId</th>

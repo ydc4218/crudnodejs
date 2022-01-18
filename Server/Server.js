@@ -1,5 +1,5 @@
 const Express = require('express')
-const Mysql = require('mysql')
+const Mysql = require('mysql2')
 const Conection = require('express-myconnection')
 const Routes = require('./Routes')
 
@@ -11,7 +11,7 @@ const Options = {
     port: '3306',
     user: 'root',
     password: '1234',
-    database: 'apijson'
+    database: 'crudnodejs'
 }
 
 app.use('/',Routes);

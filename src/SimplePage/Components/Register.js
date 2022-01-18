@@ -3,11 +3,29 @@ import InputLabel from './Items/InputLabel';
 import Input from './Items/Input';
 import { Grid, Button } from '@material-ui/core';
 import '../../Style/Style.css';
+const Fetch = require('node-fetch');
+
+
 
 const Register = () => {
   const [DataRegister, setDataRegister] = useState([]);
 
-  console.log(DataRegister);
+  const onsubmit =()=> {
+
+    Fetch('http://localhost:3000/urljson', {
+    method: 'POST',
+    body: JSON.stringify(DataRegister)
+  })
+  .then(res => res.text())
+  .then(res => console.log(res))
+  .catch(err => {
+    console.error(err)
+  })
+
+
+  }
+
+  
 
   return (
     <Grid className="grid mt-5">
@@ -39,7 +57,7 @@ const Register = () => {
         <Button
           color="primary"
           variant="contained"
-          //onClick={AgregarPieza}
+          onClick={onsubmit}
         >
           Register
         </Button>
