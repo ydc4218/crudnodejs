@@ -2,8 +2,9 @@ const Express = require('express');
 const Routes = Express.Router()
 
 Routes.use('/',Express.static('build'));
+
 Routes.post('/post', (req,res) => {
-  console.log(req.statusCode)
+  console.log(req.body)
   
 });
 

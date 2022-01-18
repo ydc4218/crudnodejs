@@ -14,7 +14,8 @@ const Register = () => {
 
     Fetch('http://localhost:3000/post', {
     method: 'POST',
-    body: JSON.stringify(DataRegister)
+    body: DataRegister,
+    
   })
   .then(res => res.text())
   .then(res => console.log(res))
