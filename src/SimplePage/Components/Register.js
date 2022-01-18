@@ -12,7 +12,7 @@ const Register = () => {
 
   const onsubmit =()=> {
 
-    Fetch('http://localhost:3000/urljson', {
+    Fetch('http://localhost:3000/post', {
     method: 'POST',
     body: JSON.stringify(DataRegister)
   })

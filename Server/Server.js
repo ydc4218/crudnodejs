@@ -13,11 +13,9 @@ const Options = {
     password: '1234',
     database: 'crudnodejs'
 }
+app.use(Conection(Mysql, Options, 'single'))
 
 app.use('/',Routes);
-
-
-app.use(Conection(Mysql, Options, 'single'))
 
 
 var port = process.env.PORT || 3000;

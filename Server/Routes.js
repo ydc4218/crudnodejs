@@ -1,34 +1,11 @@
 const Express = require('express');
 const Routes = Express.Router()
-const app = Express()
-
-
-
-app.use(Express.urlencoded({ extended: false }));
-app.use(Express.json());
-
-app.get('/hello', (req, res) => {
-  res.send('Hola mundo');
-});
-
-app.get('/urlparam', (req, res) => {
-  res.send(req.query);
-});
-
-app.post('/urljson', (req, res) => {
-  res.send(req.body);
-});
-
-
-
-
 
 Routes.use('/',Express.static('build'));
-
-
-
-
-
+Routes.post('/post', (req,res) => {
+  console.log(req.statusCode)
+  
+});
 
 Routes.get('/', (req,res) => {
     req.getConnection((err, conn) => {
