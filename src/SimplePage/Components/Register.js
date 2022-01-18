@@ -15,8 +15,10 @@ const Register = () => {
 
     axios({
       method: 'post',
-      url: 'http://localhost:3000',
+      url: 'http://localhost:3000/create',
       data: DataRegister
+  }).then(() => {
+    console.log('Success')
   })
   
   }

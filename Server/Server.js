@@ -1,51 +1,31 @@
 const Express = require('express')
 const Mysql = require('mysql2')
-const Conection = require('express-myconnection')
+const app =  Express()
 
-const bodyParser = require('body-parser')
-
-const app = Express()
-
-
-const Options = {
-    host: 'localhost',
-    port: '3306',
+const db = Mysql.createConnection({
     user: 'root',
-    password: 'Hmcl@2022',
+    host: 'localhost',
+    password:'Hmcl@2022',
     database: 'crudnodejs'
-}
+})
 
 app.use(Express.static('./build'))
-
-
-app.use(bodyParser.json())
-
-app.use(Conection(Mysql, Options, 'single'))
-
-app.route('/')
-.get(function(req,res) {
-
-    console.log(req.body)
     
+
+
+app.post('/create', (req,res) =>{
+    const Data = req.body
+
+
+    db.query('INSERT INTO apijson (title, body, userId) VALUES (?,?,?)', [Data], 
     
+(err, result) => {
+    if(err){
+        console.log(err)
+    } else {
+        res.send('Values Inserted')
+    }
 })
-.post(function(req,res) {
-    console.log(req.url)
-      
-    
-})
-
-app.route('/post')
-.get(function(req,res) {
-
-    console.log(req.body)
-    
-    
-})
-.post(function(req,res) {
-    console.log(req.body)
-      
-    
 })
 
 
