@@ -1,7 +1,8 @@
 const Express = require('express')
 const Mysql = require('mysql2')
 const Conection = require('express-myconnection')
-const Routes = require('./Routes')
+
+const bodyParser = require('body-parser')
 
 const app = Express()
 
@@ -10,12 +11,42 @@ const Options = {
     host: 'localhost',
     port: '3306',
     user: 'root',
-    password: '1234',
+    password: 'Hmcl@2022',
     database: 'crudnodejs'
 }
+
+app.use(Express.static('./build'))
+
+
+app.use(bodyParser.json())
+
 app.use(Conection(Mysql, Options, 'single'))
 
-app.use('/',Routes);
+app.route('/')
+.get(function(req,res) {
+
+    console.log(req.body)
+    
+    
+})
+.post(function(req,res) {
+    console.log(req.url)
+      
+    
+})
+
+app.route('/post')
+.get(function(req,res) {
+
+    console.log(req.body)
+    
+    
+})
+.post(function(req,res) {
+    console.log(req.body)
+      
+    
+})
 
 
 var port = process.env.PORT || 3000;

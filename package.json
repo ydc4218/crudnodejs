@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "webpack serve --mode=development",
-    "start": "nodemon node Server/Server.js",
+    "start": "webpack --mode=production && nodemon node Server/Server.js",
     "dev": "webpack serve --mode=development",
     "build": "webpack --mode=production",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "@material-ui/core": "4.12.3",
+    "axios": "^0.25.0",
     "express": "4.17.2",
     "express-myconnection": "1.0.4",
     "mysql": "2.18.1",

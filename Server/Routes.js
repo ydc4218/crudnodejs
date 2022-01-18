@@ -1,12 +1,38 @@
 const Express = require('express');
 const Routes = Express.Router()
+const bodyParser = require('body-parser')
 
-Routes.use('/',Express.static('build'));
 
-Routes.post('/post', (req,res) => {
-  console.log(req.body)
+
+
+
+
+
+
+
+
+
+
+/*Routes.use('/', function(req, res, next){
+    if ('POST' == req.method){
+            console.log(req.body)
+        
+        next()
+    }else{
+        req.method = 'GET'
+        next()
+    }
+    })
+    Routes.use('/', Express.static('./build'))
+ 
+*/
+
+
   
-});
+
+
+
+
 
 Routes.get('/', (req,res) => {
     req.getConnection((err, conn) => {

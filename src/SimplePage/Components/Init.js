@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 const Fetch = require('node-fetch');
 
 const Init = () => {
@@ -8,7 +9,8 @@ const Init = () => {
   const ApiFetch = async () => {
     const Response = await Fetch(Url);
     const ResponseJson = await Response.json();
-    setDataApi(ResponseJson);
+    setDataApi(ResponseJson)
+
   };
 
   useEffect(() => {

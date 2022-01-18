@@ -2,8 +2,9 @@ import { useState } from 'react';
 import InputLabel from './Items/InputLabel';
 import Input from './Items/Input';
 import { Grid, Button } from '@material-ui/core';
+import axios from 'axios'
 import '../../Style/Style.css';
-const Fetch = require('node-fetch');
+
 
 
 
@@ -12,21 +13,13 @@ const Register = () => {
 
   const onsubmit =()=> {
 
-    Fetch('http://localhost:3000/post', {
-    method: 'POST',
-    body: DataRegister,
-    
+    axios({
+      method: 'post',
+      url: 'http://localhost:3000',
+      data: DataRegister
   })
-  .then(res => res.text())
-  .then(res => console.log(res))
-  .catch(err => {
-    console.error(err)
-  })
-
-
-  }
-
   
+  }
 
   return (
     <Grid className="grid mt-5">
@@ -59,6 +52,7 @@ const Register = () => {
           color="primary"
           variant="contained"
           onClick={onsubmit}
+          type="submit"
         >
           Register
         </Button>
