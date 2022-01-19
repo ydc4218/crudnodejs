@@ -11,6 +11,14 @@ const Init = () => {
     const ResponseJson = await Response.json();
     setDataApi(ResponseJson)
 
+    axios.post('http://localhost:3000/addapi', {
+      ResponseJson
+    })
+  .then(() => {
+    console.log('Success')
+    
+  })
+
   };
 
   useEffect(() => {

@@ -9,15 +9,14 @@ import '../../Style/Style.css';
 
 
 const Register = () => {
-  const [DataRegister, setDataRegister] = useState([]);
+  const [DataRegister, setDataRegister] = useState();
 
   const onsubmit =()=> {
 
-    axios({
-      method: 'post',
-      url: 'http://localhost:3000/create',
-      data: DataRegister
-  }).then(() => {
+    axios.post('http://localhost:3000/create', {
+      DataRegister
+    })
+  .then(() => {
     console.log('Success')
   })
   
