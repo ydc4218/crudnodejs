@@ -9,6 +9,9 @@ const DataBd = () => {
         setDataBase(response.data)
     })
 
+    const Boton=(Data) => {
+        console.log(Data)
+    }
 
     return (
         <table className="table table-hover table-responsive align-middle container mt-5">
@@ -28,6 +31,12 @@ const DataBd = () => {
                             <td>{value.id}</td>
                             <td>{value.title}</td>
                             <td>{value.body}</td>
+                            <td>
+                            <button className="btn btn-danger" onClick={() => Boton(value.id)}>Eliminar</button>
+                            </td>
+                           
+                            <Button className="btn btn-danger">Editar</Button>
+
                         </tr>
                     );
                 })}
